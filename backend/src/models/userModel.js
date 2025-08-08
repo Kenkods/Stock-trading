@@ -1,4 +1,4 @@
-import {pool} from "../config/db.js";
+import pool from "../config/db.js";
 
 class User{
     constructor(username, email, fname, lastname, bdate, password){
