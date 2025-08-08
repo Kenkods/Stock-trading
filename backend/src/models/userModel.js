@@ -19,5 +19,16 @@ class User{
          const result= await pool.query(query, values);
          return result.rows[0];
     };
+    async loginUser(){
+
+        const query=`SELECT * FROM users WHERE username =$1;`;
+        const values=[this.username];
+        const result= await pool.query(query, values);
+        if(result.rows.length === 0){
+            throw new Error("User not found");
+        }
+        return result.rows[0];
+
+    }
 }
 export default User;
