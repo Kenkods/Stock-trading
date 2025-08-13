@@ -20,3 +20,11 @@ export const authMiddleware = (req, res, next) => {
     }
 
 }
+
+export function adminOnly(req,res,next){
+
+    if(req.user.role!=="admin"){
+        return res.status(403).json({message:"Forbidden: Admin Only!"});
+    }
+    next();
+}

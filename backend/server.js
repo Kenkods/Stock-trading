@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import pool from './src/config/db.js'; 
 import cors from "cors";
 import userRoutes from './src/routes/userRoutes.js';
+import stockRoutes from './src/routes/stockRoutes.js';
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api', userRoutes);
+app.use('/api', stockRoutes);
 
 
 
