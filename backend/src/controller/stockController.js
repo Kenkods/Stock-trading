@@ -46,4 +46,14 @@ for (const { valid, message } of validations) {
         return res.status(500).json({ error: "Error creating stock" });
     }
 }
+export const showAllStocksController = async (req, res) => {
+    try {
+        const stock = new Stock();
+        const stocks = await stock.showAllStocks();
+        return res.status(200).json({ success: true, stocks });
+    } catch (error) {
+        console.error("Error fetching stocks:", error);
+        return res.status(500).json({ error: "Error fetching stocks" });
+    }   
+}
 

@@ -45,7 +45,7 @@ export const loginUserController = async (req, res) => {
             return res.status(401).json({success:false, error: "Incorrect Password, Please try again! "});
         }
         const token = jwt.sign(
-            { id: foundUser.id, username: foundUser.username },
+            { id: foundUser.id, username: foundUser.username, role: foundUser.role },
             process.env.JWT_SECRET,
             { expiresIn: '1h' }
         );

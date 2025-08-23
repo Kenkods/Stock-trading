@@ -1,11 +1,12 @@
 import express from 'express';
-import {CreateStockController} from '../controller/stockController.js';
-import {adminOnly} from '../middleware/authMiddleware.js';
+import {createStockController, showAllStocksController} from '../controller/stockController.js';
+import {adminOnly,authMiddleware} from '../middleware/authMiddleware.js';
 
 
 
 const router = express.Router();
 
-router.post('/createStock',adminOnly, CreateStockController);
+router.post('/createStock',adminOnly, createStockController);
+router.get('/showAllStocks',authMiddleware, showAllStocksController);
 
 export default router;

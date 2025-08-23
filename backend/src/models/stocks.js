@@ -20,7 +20,7 @@ class Stock {
     }
 
     async showAllStocks() {
-        const query = `SELECT  symbol, name, current_price, high_price, low_price, market_cap, volume  FROM stocks;`;
+        const query = `SELECT  symbol, name, current_price, high_price, low_price, volume  FROM stocks;`;
         const result = await pool.query(query);
         return result.rows;
     }
